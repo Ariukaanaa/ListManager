@@ -26,6 +26,21 @@ public class TaskManager
         }
     }
 
+    public boolean changeCondition( int id )
+    {
+        for( Task task : list )
+        {
+            if( task.getId() == id )
+            {
+                if( task.getCompleted() == false ) task.setCompleted(true  ); 
+                else                               task.setCompleted(false ); 
+
+                return true ; 
+            }
+        }
+        return false ; 
+    }
+
     public boolean deleteById( int id )
     {
         for( Task task : list ) 

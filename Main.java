@@ -10,6 +10,14 @@ public class Main {
         Scanner sc = new Scanner(System.in); 
         TaskManager manager = new TaskManager() ; 
 
+        Task task1 = new Task("HomeWork"  , false ); 
+        Task task2 = new Task("Do washes" , false ); 
+        Task task3 = new Task("Training"  , false ); 
+        
+        manager.addTask(task1) ; 
+        manager.addTask(task2) ;
+        manager.addTask(task3) ;
+
         while( repete )
         {
             System.out.println("**********************************") ;
@@ -33,7 +41,29 @@ public class Main {
                     case 1 -> System.out.println("Not finish ") ; 
                     case 2 -> manager.afficherTout() ; 
                     case 3 -> System.out.println("Not finish ") ; 
-                    case 4 -> System.out.println("Not finish ") ; 
+                    case 4 ->
+                    {
+                        boolean changeCondition = true ; 
+                        int id = 0 ; 
+                        while(changeCondition)
+                        {
+                            System.out.print("Entrez le id ce que vous voulez changer conditoin : "); 
+                            try
+                            {
+                                id = sc.nextInt() ; 
+                                changeCondition = false ; 
+                            }
+                            catch( InputMismatchException e )
+                            {
+                                System.out.println(" Encore un fois , tu vas mettre autre chose que le int , je vais baiser ta meuf !!! ") ; 
+                                sc.next() ; 
+                            }
+                        }
+
+                        boolean changer = manager.changeCondition(id) ; 
+                        if( changer )    System.out.println("Changement reussi !! "); 
+                        else             System.out.println("Changement echoue !! ") ; 
+                    }
                     case 5 ->
                     {
                         boolean delete = true ; 

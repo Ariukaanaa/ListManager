@@ -16,7 +16,7 @@ public class Task
         return title;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 
@@ -34,7 +34,7 @@ public class Task
 
     @Override
     public String toString() {
-        return "Task [title=" + title + ", completed=" + completed + ", id=" + id + "]";
+        return " id . " + id + "," + " title = " + title + ", completed=" + completed ;
     }
 
     
