@@ -7,6 +7,7 @@ public class Main {
 
         boolean repete = true ; 
         Scanner sc = new Scanner(System.in); 
+        TaskManager manager = new TaskManager() ; 
 
         while( repete )
         {
@@ -29,7 +30,7 @@ public class Main {
                 switch( choice )
                 {
                     case 1 -> System.out.println("Not finish ") ; 
-                    case 2 -> System.out.println("Not finish ") ; 
+                    case 2 -> manager.afficherTout() ; 
                     case 3 -> System.out.println("Not finish ") ; 
                     case 4 -> System.out.println("Not finish ") ; 
                     case 5 -> System.out.println("Not finish ") ; 
