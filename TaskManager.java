@@ -26,6 +26,17 @@ public class TaskManager
         }
     }
 
+    public void afficherTaskNotFinish()
+    {
+        for( Task task : list )
+        {
+            if( !task.getCompleted()  )
+            {
+                System.out.println( task.toString()) ; 
+            }
+        }
+    }
+
     public boolean changeCondition( int id )
     {
         for( Task task : list )
@@ -35,6 +46,19 @@ public class TaskManager
                 if( task.getCompleted() == false ) task.setCompleted(true  ); 
                 else                               task.setCompleted(false ); 
 
+                return true ; 
+            }
+        }
+        return false ; 
+    }
+
+    public boolean searchById( int id )
+    {
+        for( Task task : list ) 
+        {
+            if( task.getId() == id )
+            {
+                System.out.println( task.toString()) ; 
                 return true ; 
             }
         }

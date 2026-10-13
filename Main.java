@@ -28,7 +28,8 @@ public class Main {
             System.out.println("3. Search The Task By Id") ; 
             System.out.println("4. Changer The Task Condition ") ; 
             System.out.println("5. Delete Task By Id") ; 
-            System.out.println("6. exit") ;
+            System.out.println("6. Show Task Not Finished") ; 
+            System.out.println("7. exit") ;
             System.out.println("**********************************") ;
             System.out.println("**********************************") ;
 
@@ -87,7 +88,8 @@ public class Main {
                         if( deleteById ) System.out.println("Delete reussi !! "); 
                         else             System.out.println("Delete echoue !! ") ; 
                     } 
-                    case 6 -> repete = false ; 
+                    case 6 -> manager.afficherTaskNotFinish() ; 
+                    case 7 -> repete = false ; 
                     default -> System.out.println(" Un nombree!!! con!! , pas de la nom de ta matrise!! ") ; 
                 }
             }
