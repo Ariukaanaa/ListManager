@@ -39,9 +39,49 @@ public class Main {
 
                 switch( choice )
                 {
-                    case 1 -> System.out.println("Not finish ") ; 
+                    case 1 ->
+                    {
+                        String title ; 
+                        boolean compelted ; 
+
+                        sc.nextLine(); // choice = sc.nextInt() ; uunees uldsen Enteriig ustgana
+
+                        System.out.println("Entrez le nom de task : ") ; 
+                        title = sc.nextLine() ; 
+                        System.out.println("Choisisez 1 pour le task finished , autre pour contraire") ; 
+                        if( sc.nextInt() == 1 ) compelted = true ; 
+                        else compelted = false ; 
+
+                        manager.addTask( new Task(title , compelted)); 
+                    }
                     case 2 -> manager.afficherTout() ; 
-                    case 3 -> System.out.println("Not finish ") ; 
+                    case 3 ->
+                    {
+                        boolean searchId = true ; 
+                        int id = 0 ; 
+                        while(searchId)
+                        {
+                            System.out.print("Entrez le id ce que vous voulez chercher : "); 
+                            try
+                            {
+                                id = sc.nextInt() ; 
+                                searchId = false ; 
+                            }
+                            catch( InputMismatchException e )
+                            {
+                                System.out.println(" Encore un fois , tu vas mettre autre chose que le int , je vais baiser ta meuf !!! ") ; 
+                                sc.next() ; 
+                            }
+                        }
+                        boolean search = manager.searchById(id) ; 
+                        if( search )
+                        {
+                            System.out.println("Trouveee !! "); 
+                        }     
+                        else{
+                            System.out.println(" Task nontrouvable !! ") ;
+                        }          
+                    } 
                     case 4 ->
                     {
                         boolean changeCondition = true ; 

@@ -20,6 +20,11 @@ public class TaskManager
 
     public void afficherTout() 
     {
+        if (list.isEmpty()) {
+            System.out.println("Aucune tâche.");
+            return;
+        }
+
         for( Task task : list )
         {
             System.out.println( task.toString()) ; 
@@ -28,13 +33,23 @@ public class TaskManager
 
     public void afficherTaskNotFinish()
     {
+        if (list.isEmpty()) {
+            System.out.println("Aucune tâche.");
+            return;
+        }
+
+        boolean cours = false ; 
+
         for( Task task : list )
         {
             if( !task.getCompleted()  )
             {
                 System.out.println( task.toString()) ; 
+                cours = true ; 
             }
         }
+
+        if( !cours ) System.out.println("Aucune tâche en cours ");
     }
 
     public boolean changeCondition( int id )
