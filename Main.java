@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -33,14 +34,37 @@ public class Main {
                     case 2 -> manager.afficherTout() ; 
                     case 3 -> System.out.println("Not finish ") ; 
                     case 4 -> System.out.println("Not finish ") ; 
-                    case 5 -> System.out.println("Not finish ") ; 
+                    case 5 ->
+                    {
+                        boolean delete = true ; 
+                        int id = 0 ; 
+                        while(delete)
+                        {
+                            System.out.print("Entrez le id ce que vous voulez supprimer : "); 
+                            try
+                            {
+                                id = sc.nextInt() ; 
+                                delete = false ; 
+                            }
+                            catch( InputMismatchException e )
+                            {
+                                System.out.println(" Encore un fois , tu vas mettre autre chose que le int , je vais baiser ta meuf !!! ") ; 
+                                sc.next() ; 
+                            }
+                        }
+
+                        boolean deleteById = manager.deleteById(id) ; 
+                        if( deleteById ) System.out.println("Delete reussi !! "); 
+                        else             System.out.println("Delete echoue !! ") ; 
+                    } 
                     case 6 -> repete = false ; 
                     default -> System.out.println(" Un nombree!!! con!! , pas de la nom de ta matrise!! ") ; 
                 }
             }
-            catch( Exception e )
+            catch( InputMismatchException e )
             {
                 System.out.println(" Euhh il faut entrez un nombre, pas de nude de ta mere !!!") ; 
+                sc.next(); 
             }
         }
     }

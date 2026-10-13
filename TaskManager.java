@@ -28,6 +28,14 @@ public class TaskManager
 
     public boolean deleteById( int id )
     {
+        for( Task task : list ) 
+        {
+            if( task.getId() == id )
+            {
+                list.remove(task) ; 
+                return true ; 
+            }
+        }
         return false ; 
     }
 }
